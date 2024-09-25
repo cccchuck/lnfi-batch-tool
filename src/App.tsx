@@ -178,8 +178,8 @@ function App() {
     } catch (error) {
       console.error('Parse tasks error: ', error)
       toast.error('转账地址格式错误')
-    } finally {
       setLoading(false)
+      return
     }
 
     if (!parsedTasks.length) {
