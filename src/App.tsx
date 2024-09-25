@@ -132,7 +132,10 @@ function App() {
 
     try {
       const seed = bip39.mnemonicToSeedSync(mnemonic)
-      const root = bip32.fromSeed(seed, bitcoin.networks.bitcoin)
+      const root = bip32.fromSeed(
+        Uint8Array.from(seed),
+        bitcoin.networks.bitcoin
+      )
       const child = root.derivePath(DERIVE_PATH.replace('index', '0'))
       const privateKey = child.privateKey!
       toast.success('钱包加载成功')
