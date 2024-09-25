@@ -204,6 +204,7 @@ function App() {
         ...task,
         eventId,
       })
+      await new Promise((resolve) => setTimeout(resolve, 500))
     }
 
     const blob = new Blob([JSON.stringify(receipts, null, 2)], {
